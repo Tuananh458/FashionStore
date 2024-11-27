@@ -8,7 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
-    'App\\Helpers\\admin\\TextSystemConst' => $baseDir . '/app/Helpers/admin/TextSystemConst.php',
     'App\\Http\\Controllers\\Admin\\AdminController' => $baseDir . '/app/Http/Controllers/Admin/AdminController.php',
     'App\\Http\\Controllers\\Admin\\Auth\\AuthenticatedSessionController' => $baseDir . '/app/Http/Controllers/Admin/Auth/AuthenticatedSessionController.php',
     'App\\Http\\Controllers\\Admin\\Auth\\EmailVerificationNotificationController' => $baseDir . '/app/Http/Controllers/Admin/Auth/EmailVerificationNotificationController.php',
@@ -29,6 +28,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\EmailVerificationNotificationController' => $baseDir . '/app/Http/Controllers/Auth/EmailVerificationNotificationController.php',
     'App\\Http\\Controllers\\Auth\\EmailVerificationPromptController' => $baseDir . '/app/Http/Controllers/Auth/EmailVerificationPromptController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
+    'App\\Http\\Controllers\\Auth\\GoogleController' => $baseDir . '/app/Http/Controllers/Auth/GoogleController.php',
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\VerifyEmailController' => $baseDir . '/app/Http/Controllers/Auth/VerifyEmailController.php',
     'App\\Http\\Controllers\\CartController' => $baseDir . '/app/Http/Controllers/CartController.php',
