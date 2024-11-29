@@ -42,7 +42,16 @@
                         <a href="{{ route('auth.google') }}" class="btn btn-google">
                           <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png" alt="Đăng nhập bằng Google">
                         </a>
+                        <a href="{{ route('auth.facebook') }}" class="btn btn-facebook">
+                          <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                            alt="Đăng nhập bằng Facebook"
+                            style="height: 24px; margin-right: 10px;">
+                          Đăng nhập bằng Facebook
+                        </a>
                       </div>
+                     
+
+
                       <div class="content-footer">
                         <a href="{{ route('user.forgot_password_create') }}">
                           Quên mật khẩu,
