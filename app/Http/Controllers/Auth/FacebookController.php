@@ -11,13 +11,11 @@ class FacebookController extends Controller
 {
     public function redirectToFacebook()
     {
-        echo "Hello";
         return Socialite::driver('facebook')->redirect();
     }
 
     public function handleFacebookCallback()
     {
-        echo "Sao rồi";
         try {
             $facebookUser = Socialite::driver('facebook')->user();
 
