@@ -37,7 +37,7 @@ class ProductReviewService
     {
         try {
             $data = $request->validated();
-            if ($this->checkProductReview($product)){
+            if (!$this->checkProductReview($product)){
                 return back()->with('error', "Đánh giá thất bại vui lòng thử lại");
             }
             $data['user_id'] = Auth::user()->id;
@@ -57,10 +57,13 @@ class ProductReviewService
         }
         $user = Auth::user();
         if (count($this->productReviewReprository->checkUserBuyProduct($product->id, $user->id)) <= 0) {
+            
             return false;
+
         }
 
         if ($this->productReviewReprository->checkUserProductReview($product->id, $user->id) >= 1) {
+            
             return false;
         }
 

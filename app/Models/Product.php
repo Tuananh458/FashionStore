@@ -37,7 +37,7 @@ class Product extends Model
 
     const PRODUCT_NUMBER_ITEM = [
         'search' => 24,
-        'show' => 6,
+        'show' => 8,
     ];
 
     public function colors()
@@ -50,4 +50,9 @@ class Product extends Model
         return $this->belongsTo(Category::class, 'category_id', 'id')->setEagerLoads([]);
 
     }
+
+    public function brands()
+{
+    return $this->belongsTo(Brand::class);
+}
 }

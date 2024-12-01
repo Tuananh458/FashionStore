@@ -15,7 +15,7 @@
                   <div class="your-details row">
                     <div class="form-group">
                       <label for="exampleInputPassword1">Họ Và Tên</label>
-                      <input type="text" class="form-control" disabled value="{{ $fullName }}" id="name" name="name" placeholder="Nhập họ và tên">
+                      <input type="text" class="form-control" value="{{ $fullName }}" id="name" name="name" placeholder="Nhập họ và tên">
                       @if ($errors->get('name'))
                         <span id="name-error" class="error invalid-feedback" style="display: block">
                           {{ implode(", ",$errors->get('name')) }}
@@ -33,7 +33,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Số điện thoại</label>
-                      <input type="text" class="form-control" disabled value="{{ $phoneNumber }}" id="phone_number" name="phone_number" placeholder="Nhập số điện thoại">
+                      <input type="text" class="form-control" value="{{ $phoneNumber }}" id="phone_number" name="phone_number" placeholder="Nhập số điện thoại">
                       @if ($errors->get('phone_number'))
                         <span id="phone_number-error" class="error invalid-feedback" style="display: block">
                           {{ implode(", ",$errors->get('phone_number')) }}
@@ -42,7 +42,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Tỉnh, Thành Phố</label>
-                      <select class="form-control form-select" disabled id="city" name="city">
+                      <select class="form-control form-select" id="city" name="city">
                         @foreach ($citys as $item)
                             <option value="{{ $item['ProvinceID'] }}"
                             @if ( $item['ProvinceID'] == $city)
@@ -59,7 +59,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Quận, Huyện</label>
-                      <select class="form-control form-select" id="district" disabled name="district">
+                      <select class="form-control form-select" id="district" name="district">
                         @foreach ($districts as $item)
                             <option value="{{ $item['DistrictID'] }}"
                             @if ( $item['DistrictID'] == $district)
@@ -76,7 +76,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Phường Xã</label>
-                      <select class="form-control form-select" id="ward" disabled name="ward">
+                      <select class="form-control form-select" id="ward" name="ward">
                         @foreach ($wards as $item)
                             <option value="{{ $item['WardCode'] }}"
                             @if ( $item['WardCode'] == $ward)
@@ -93,7 +93,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Địa Chỉ Nhà</label>
-                      <input type="text" class="form-control" disabled value="{{ $apartment_number}}" id="apartment_number" name="apartment_number" aria-describedby="emailHelp" placeholder="Nhập địa chỉ nhà">
+                      <input type="text" class="form-control" value="{{ $apartment_number}}" id="apartment_number" name="apartment_number" aria-describedby="emailHelp" placeholder="Nhập địa chỉ nhà">
                       @if ($errors->get('apartment_number'))
                         <span id="apartment_number-error" class="error invalid-feedback" style="display: block">
                           {{ implode(", ",$errors->get('apartment_number')) }}
@@ -114,14 +114,14 @@
                     </h4>
                     <div class="step-description">
                       <div class="your-details row">
-                        {{-- <div class="info-order">
+                        <div class="info-order">
                           <div class="discount">
                               <input type="text" name="discount_code" placeholder="Nhập mã giảm giá nếu có">
                               <div>
                                 <button>Áp dụng</button>
                               </div>
                           </div>
-                        </div> --}}
+                        </div>
                         <div class="info-order">
                           <div class="info__order-box">
                             <span>Tổng tiền sản phẩm</span>

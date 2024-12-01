@@ -31,8 +31,10 @@ class CartService
 
     public function store(Request $request)
     {
+        
         // lấy thông tin sản phẩm
         $product = $this->productSizeRepository->getProductSize($request->id);
+        //dd($product);
         // kiểm tra xem sản phẩm được thêm vào giỏ hàng có tồn tại không
         if (! $product) {
             return redirect()->route('user.home');

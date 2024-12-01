@@ -29,6 +29,7 @@ class ProductSizeRepository extends BaseRepository
         ->join('colors', 'products_color.color_id', '=', 'colors.id')
         ->join('sizes', 'sizes.id', '=', 'products_size.size_id')
         ->select(
+            'products_size.id as id',
             'products_color.img as product_img',
             'products.name as product_name',
             'colors.name as color_name',
