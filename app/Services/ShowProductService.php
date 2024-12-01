@@ -54,8 +54,7 @@ class ShowProductService
      */
     public function index(Request $request, $slug)
     {
-        $categoryParent = $this->categoryRepository->whereFirst(['slug' => $slug])
-        ;
+        $categoryParent = $this->categoryRepository->whereFirst(['slug' => $slug]);
         if (! $categoryParent) {
             abort(404);
         }

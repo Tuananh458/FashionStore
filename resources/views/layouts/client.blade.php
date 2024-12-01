@@ -6,6 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="shortcut icon" href="{{ asset('asset/client/images/favicon.png') }}">
       <title>{{ setting_website()->name }}</title>
+      @stack('css')
       <link href="{{ asset('asset/client/css/bootstrap.css') }}" rel="stylesheet">
       <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
       <link href="{{ asset('asset/client/css/font-awesome.min.css') }}" rel="stylesheet">
@@ -13,6 +14,8 @@
       <link href="{{ asset('asset/client/css/sequence-looptheme.css') }}" rel="stylesheet" media="all"/>
       <link href="{{ asset('asset/client/css/style.css') }}" rel="stylesheet">
       <link rel="stylesheet" href="{{ asset('asset/admin/plugins/fontawesome-free/css/all.min.css') }}">
+
+
       @vite(['resources/client/css/auth.css', 'resources/client/css/home.css'])
       <!--[if lt IE 9]><script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script><script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script><![endif]-->
    </head>
@@ -30,6 +33,9 @@
       .productname{
           padding-top: 10px;
       }
+      .image {
+         max-witdh: 80px!important;
+      }
   </style>
    <body id="home">
       <div class="wrapper">
@@ -39,25 +45,14 @@
                   <div class="col-md-2 col-sm-2">
                      <div class="logo">
                         <a href="{{ route('user.home') }}">
-                           <img src="{{ asset("asset/client/images/" . setting_website()->logo) }}" alt="FlatShop">
+                           <img src="{{ asset('asset/client/images/logo.png') }}" style="max-witdh: 80px!important;" alt="FlatShop">
                         </a>
                      </div>
                   </div>
                   <div class="col-md-10 col-sm-10">
                      <div class="header_top">
-                        <div class="row">
-                           <div class="col-md-6">
-                              <ul class="topmenu">
-                                 <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                                 <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                 <li><a href="#"><i class="fab fa-instagram-square"></i></a></li>
-                                 <li><a href="#"><i class="fab fa-telegram-plane"></i></a></li>
-                                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                              </ul>
-                           </div>
-                           <div class="col-md-6">
-                              @if (Auth::check())
-                              <ul class="nav navbar-nav usermenu">
+                     @if (Auth::check())
+                              <ul class="usermenu">
                                  <li class="dropdown">
                                     <a href="#" class="dropdown-toggle profile" data-toggle="dropdown">
                                        <img src="{{ asset('asset/client/images/loginbg.png') }}" alt="">
@@ -78,8 +73,6 @@
                                  <li><a href="{{ route('user.register') }}" class="reg">Đăng Kí</a></li>
                               </ul>
                               @endif
-                           </div>
-                        </div>
                      </div>
                      <div class="clearfix"></div>
                      <div class="header_bottom">
@@ -103,7 +96,7 @@
                               @foreach (category_header() as $category)
                                  <li class="dropdown @php
                                     if (isset($request->slug) && $request->slug == $category->slug) {
-                                       echo "active";
+                                       echo 'active';
                                     }
                                  @endphp">
                                     <a href="{{ route('user.products', $category->slug) }}">{{ $category->name }}</a>
@@ -128,7 +121,7 @@
                      <div class="col-md-3">
                         <div class="footer-logo">
                            <a href="{{ route('user.home') }}">
-                              <img src="{{ asset("asset/client/images/" . setting_website()->logo) }}" alt="">
+                              <img src="{{ asset('asset/client/images/logo.png') }}" alt="">
                            </a>
                         </div>
                      </div>

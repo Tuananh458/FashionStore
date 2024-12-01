@@ -36,13 +36,14 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     public function getBestSellingProduct()
     {
         return DB::select('
-            select sum(order_details.quantity) as sum, products.id, products.name, products.price_sell, products.img from products 
+            select sum(order_details.quantity) as sum, products.id, products.name, products.price_sell, products.img, brands.name as brand_name from products
+            join brands on products.brand_id = brands.id 
             join products_color on products.id = products_color.product_id
             join products_size on products_color.id = products_size.product_color_id
             join order_details on products_size.id = order_details.product_size_id
             join orders on orders.id = order_details.order_id
             where orders.order_status = 3 and products.deleted_at is null
-            group by products.id, products.name, products.price_sell, products.img
+            group by products.id, products.name, products.price_sell, products.img, brands.name
             order by sum desc
             limit 12
         ');
@@ -54,8 +55,10 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     public function getNewProducts()
     {
         return $this->model
-        ->join('categories', 'products.category_id', '=', 'categories.id')->whereNull('categories.deleted_at')
-        ->selectRaw('products.*')
+        ->join('categories', 'products.category_id', '=', 'categories.id')
+        ->join('brands', 'products.brand_id', '=', 'brands.id')
+        ->whereNull('categories.deleted_at')
+        ->selectRaw('products.*, brands.name as brand_name')
         ->orderBy("products.id", "desc")->limit(12)->get();
     }
 
@@ -110,7 +113,8 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
             return $query->where('products.brand_id', $brand);
         })
         ->join('categories', 'products.category_id', '=', 'categories.id')
-        ->selectRaw('products.*')
+        ->join('brands', 'products.brand_id', '=', 'brands.id')
+        ->selectRaw('products.*, brands.name as brand_name')
         ->whereNull('categories.deleted_at')
         ->paginate(Product::PRODUCT_NUMBER_ITEM['search'])
         ->withQueryString();
@@ -120,7 +124,8 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     {
         return $this->model
         ->join('categories', 'products.category_id', '=', 'categories.id')
-        ->selectRaw('products.*')
+        ->join('brands', 'products.brand_id', '=', 'brands.id')
+        ->selectRaw('products.*, brands.name as brand_name')
         ->where('categories.slug', $slug)
         ->when($brand, function ($query, $brand) {
             return $query->where('products.brand_id', $brand);
@@ -140,9 +145,11 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     public function getRelatedProducts($product)
     {
         return $this->model
+        ->join('brands', 'products.brand_id', '=', 'brands.id')
+        ->selectRaw('products.*, brands.name as brand_name')
         ->where('category_id', $product->category_id)
-        ->where('id', '!=', $product->id)
-        ->orderByDesc('id')
+        ->where('products.id', '!=', $product->id)
+        ->orderByDesc('products.id')
         ->limit(4)
         ->get();
     }
