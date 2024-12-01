@@ -50,4 +50,8 @@ class Order extends Model
     const ORDER_NUMBER_ITEM = [
         'history' => 10,
     ];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

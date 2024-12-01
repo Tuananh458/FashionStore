@@ -182,6 +182,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Darryldecode\Cart\CartServiceProvider::class,
+      
 
         /*
          * Package Service Providers...
@@ -198,6 +199,8 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         App\Providers\RepositoryServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
+        Ladumor\OneSignal\OneSignalServiceProvider::class,
+        
     ],
 
     /*
@@ -215,6 +218,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
+        'OneSignal' => \Ladumor\OneSignal\OneSignal::class,
     ])->toArray(),
 
 ];

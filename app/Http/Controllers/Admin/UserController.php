@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\UpdateUserRequest;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -63,4 +64,7 @@ class UserController extends Controller
     {
         return $this->userService->delete($request);
     }
+
+
+    
 }

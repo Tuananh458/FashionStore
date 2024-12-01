@@ -11,7 +11,8 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-
+use App\Notifications\OrderUpdatedNotification;
+use App\Notifications\OrderConfirmed;
 class OrderService 
 {
     /**
@@ -164,24 +165,30 @@ class OrderService
         ];
     }
 
-    public function update(Order $order ,Request $request)
+    public function update(Order $order, Request $request)
     {
         try {
             $data = $request->all();
-            // hoàn trả lại số lượng
+            
+            // Hoàn trả lại số lượng nếu đơn hàng bị hủy
             if ($request->order_status == 2) {
-                // lấy những phẩm thuộc đơn hàng bị hủy
                 $orderDetails = OrderDetail::where('order_id', $order->id)->get();
-                // duyệt qua tất cả sản phẩm và trả số lượng ban đầu
-                foreach($orderDetails as $orderDetail) {
-                    // tìm cái sản phẩm
+                foreach ($orderDetails as $orderDetail) {
                     $productSize = ProductSize::where('id', $orderDetail->product_size_id)->first();
-                    // hoàn trả lại số lượng
                     $productSize->update(['quantity' => $productSize->quantity + $orderDetail->quantity]);
                 }
             }
-            // cập nhật lại thông tin đơn hàng gồm trạng thái và ghi chú của đơn hàng
+
+            // Cập nhật thông tin đơn hàng
             $this->orderRepository->update($order, $data);
+
+            // Gửi thông báo nếu trạng thái đơn hàng là "confirmed"
+            if ($order->status == Order::STATUS_ORDER['confirmed']) {
+                // Gửi thông báo đến người dùng
+                $user = $order->user; // Giả sử bạn có quan hệ user trong mô hình Order
+                $user->notify(new OrderConfirmed($order));
+            }
+
             return redirect()->route('admin.orders_index')->with('success', TextSystemConst::ORDER_PROCESSING);
         } catch (Exception $e) {
             return redirect()->route('admin.orders_index')->with('error', $e->getMessage());

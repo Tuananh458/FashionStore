@@ -38,6 +38,9 @@
   <!-- CodeMirror -->
   <link rel="stylesheet" href="{{ asset('asset/admin/plugins/codemirror/codemirror.css') }}">
   <link rel="stylesheet" href="{{ asset('asset/admin/plugins/codemirror/theme/monokai.css') }}">
+  <!-- Toastr CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+
   <script>
     $.ajaxSetup({
         headers: {
@@ -45,4 +48,34 @@
         },
     });
   </script>
+  <!-- Toastr JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script type="text/javascript">
+   window.OneSignal = window.OneSignal || [];
+   OneSignal.push(function() {
+      OneSignal.init({
+         appId: "your-app-id-here",  // Thay thế bằng App ID của bạn
+         notifyButton: { enable: true },  // Kích hoạt nút thông báo
+         promptOptions: {
+            actionMessage: "Chúng tôi muốn gửi thông báo cho bạn!",  // Mời người dùng đăng ký nhận thông báo
+            acceptButtonText: "Đồng ý",
+            cancelButtonText: "Không, cảm ơn",
+         },
+         welcomeNotification: {
+            disable: true  // Tắt thông báo chào mừng mặc định của OneSignal
+         }
+      });
+
+      // Lắng nghe sự kiện thông báo khi được nhận
+      OneSignal.on('notificationDisplay', function(event) {
+         // Hiển thị thông báo dưới dạng toast
+         toastr.success(event.data.title, event.data.body, {
+             positionClass: "toast-bottom-right",  // Vị trí thông báo
+             timeOut: 5000,  // Thời gian hiển thị thông báo
+         });
+      });
+   });
+</script>
+
 </head>

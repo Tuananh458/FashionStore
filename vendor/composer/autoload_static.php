@@ -26,6 +26,7 @@ class ComposerStaticInit83d50aac3e296db4b20c0b7e6ca67a9c
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '35a6ad97d21e794e7e22a17d806652e4' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Functions.php',
+        '3109cb1a231dcd04bee1f9f620d46975' => __DIR__ . '/..' . '/paragonie/sodium_compat/autoload.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
         '265b4faa2b3a9766332744949e83bf97' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Collections/helpers.php',
@@ -93,6 +94,7 @@ class ComposerStaticInit83d50aac3e296db4b20c0b7e6ca67a9c
         ),
         'P' => 
         array (
+            'Pusher\\' => 7,
             'Psy\\' => 4,
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
@@ -125,6 +127,7 @@ class ComposerStaticInit83d50aac3e296db4b20c0b7e6ca67a9c
             'Laravel\\Sanctum\\' => 16,
             'Laravel\\Sail\\' => 13,
             'Laravel\\Breeze\\' => 15,
+            'Ladumor\\OneSignal\\' => 18,
         ),
         'I' => 
         array (
@@ -335,6 +338,10 @@ class ComposerStaticInit83d50aac3e296db4b20c0b7e6ca67a9c
         array (
             0 => __DIR__ . '/..' . '/ramsey/collection/src',
         ),
+        'Pusher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pusher/pusher-php-server/src',
+        ),
         'Psy\\' => 
         array (
             0 => __DIR__ . '/..' . '/psy/psysh/src',
@@ -427,6 +434,10 @@ class ComposerStaticInit83d50aac3e296db4b20c0b7e6ca67a9c
         'Laravel\\Breeze\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/breeze/src',
+        ),
+        'Ladumor\\OneSignal\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ladumor/one-signal/src',
         ),
         'Illuminate\\Support\\' => 
         array (
@@ -551,8 +562,8 @@ class ComposerStaticInit83d50aac3e296db4b20c0b7e6ca67a9c
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Events\\OrderConfirmed' => __DIR__ . '/../..' . '/app/Events/OrderConfirmed.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
-        'App\\Helpers\\admin\\TextSystemConst' => __DIR__ . '/../..' . '/app/Helpers/admin/TextSystemConst.php',
         'App\\Http\\Controllers\\Admin\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminController.php',
         'App\\Http\\Controllers\\Admin\\Auth\\AuthenticatedSessionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Auth/AuthenticatedSessionController.php',
         'App\\Http\\Controllers\\Admin\\Auth\\EmailVerificationNotificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Auth/EmailVerificationNotificationController.php',
@@ -579,6 +590,7 @@ class ComposerStaticInit83d50aac3e296db4b20c0b7e6ca67a9c
         'App\\Http\\Controllers\\CheckOutController' => __DIR__ . '/../..' . '/app/Http/Controllers/CheckOutController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\NotificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/NotificationController.php',
         'App\\Http\\Controllers\\OrderHistoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/OrderHistoryController.php',
         'App\\Http\\Controllers\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductController.php',
         'App\\Http\\Controllers\\ProductDetailController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductDetailController.php',
@@ -624,6 +636,7 @@ class ComposerStaticInit83d50aac3e296db4b20c0b7e6ca67a9c
         'App\\Http\\Requests\\CheckOutRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CheckOutRequest.php',
         'App\\Http\\Requests\\ProductReviewRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProductReviewRequest.php',
         'App\\Http\\Requests\\UpdateProfileRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateProfileRequest.php',
+        'App\\Listeners\\SendOrderConfirmationNotification' => __DIR__ . '/../..' . '/app/Listeners/SendOrderConfirmationNotification.php',
         'App\\Models\\Address' => __DIR__ . '/../..' . '/app/Models/Address.php',
         'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
         'App\\Models\\Brand' => __DIR__ . '/../..' . '/app/Models/Brand.php',
@@ -642,6 +655,8 @@ class ComposerStaticInit83d50aac3e296db4b20c0b7e6ca67a9c
         'App\\Models\\Size' => __DIR__ . '/../..' . '/app/Models/Size.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\UserVerify' => __DIR__ . '/../..' . '/app/Models/UserVerify.php',
+        'App\\Notifications\\OrderConfirmed' => __DIR__ . '/../..' . '/app/Notifications/OrderConfirmed.php',
+        'App\\Notifications\\OrderConfirmedNotification' => __DIR__ . '/../..' . '/app/Notifications/OrderConfirmedNotification.php',
         'App\\Notifications\\VerifyUser' => __DIR__ . '/../..' . '/app/Notifications/VerifyUser.php',
         'App\\Notifications\\VerifyUserForgotPassword' => __DIR__ . '/../..' . '/app/Notifications/VerifyUserForgotPassword.php',
         'App\\Notifications\\VerifyUserRegister' => __DIR__ . '/../..' . '/app/Notifications/VerifyUserRegister.php',
@@ -681,6 +696,7 @@ class ComposerStaticInit83d50aac3e296db4b20c0b7e6ca67a9c
         'App\\Services\\ColorService' => __DIR__ . '/../..' . '/app/Services/ColorService.php',
         'App\\Services\\DashboardService' => __DIR__ . '/../..' . '/app/Services/DashboardService.php',
         'App\\Services\\HomeService' => __DIR__ . '/../..' . '/app/Services/HomeService.php',
+        'App\\Services\\NotificationService' => __DIR__ . '/../..' . '/app/Services/NotificationService.php',
         'App\\Services\\OrderHistoryService' => __DIR__ . '/../..' . '/app/Services/OrderHistoryService.php',
         'App\\Services\\OrderService' => __DIR__ . '/../..' . '/app/Services/OrderService.php',
         'App\\Services\\PaymentService' => __DIR__ . '/../..' . '/app/Services/PaymentService.php',
@@ -3181,6 +3197,11 @@ class ComposerStaticInit83d50aac3e296db4b20c0b7e6ca67a9c
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'Ladumor\\OneSignal\\OneSignal' => __DIR__ . '/..' . '/ladumor/one-signal/src/OneSignal.php',
+        'Ladumor\\OneSignal\\OneSignalClient' => __DIR__ . '/..' . '/ladumor/one-signal/src/OneSignalClient.php',
+        'Ladumor\\OneSignal\\OneSignalManager' => __DIR__ . '/..' . '/ladumor/one-signal/src/OneSignalManager.php',
+        'Ladumor\\OneSignal\\OneSignalServiceProvider' => __DIR__ . '/..' . '/ladumor/one-signal/src/OneSignalServiceProvider.php',
+        'Ladumor\\OneSignal\\commands\\PublishUserDevice' => __DIR__ . '/..' . '/ladumor/one-signal/src/commands/PublishUserDevice.php',
         'Laravel\\Breeze\\BreezeServiceProvider' => __DIR__ . '/..' . '/laravel/breeze/src/BreezeServiceProvider.php',
         'Laravel\\Breeze\\Console\\InstallCommand' => __DIR__ . '/..' . '/laravel/breeze/src/Console/InstallCommand.php',
         'Laravel\\Breeze\\Console\\InstallsApiStack' => __DIR__ . '/..' . '/laravel/breeze/src/Console/InstallsApiStack.php',
@@ -4833,6 +4854,13 @@ class ComposerStaticInit83d50aac3e296db4b20c0b7e6ca67a9c
         'Psy\\VersionUpdater\\IntervalChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/IntervalChecker.php',
         'Psy\\VersionUpdater\\NoopChecker' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/NoopChecker.php',
         'Psy\\VersionUpdater\\SelfUpdate' => __DIR__ . '/..' . '/psy/psysh/src/VersionUpdater/SelfUpdate.php',
+        'Pusher\\ApiErrorException' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/ApiErrorException.php',
+        'Pusher\\Pusher' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/Pusher.php',
+        'Pusher\\PusherCrypto' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherCrypto.php',
+        'Pusher\\PusherException' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherException.php',
+        'Pusher\\PusherInstance' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherInstance.php',
+        'Pusher\\PusherInterface' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/PusherInterface.php',
+        'Pusher\\Webhook' => __DIR__ . '/..' . '/pusher/pusher-php-server/src/Webhook.php',
         'Ramsey\\Collection\\AbstractArray' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractArray.php',
         'Ramsey\\Collection\\AbstractCollection' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractCollection.php',
         'Ramsey\\Collection\\AbstractSet' => __DIR__ . '/..' . '/ramsey/collection/src/AbstractSet.php',

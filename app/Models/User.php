@@ -31,6 +31,7 @@ class User extends Authenticatable
         'deleted_by',
         'active',
         'disable_reason',
+        'onesignal_player_id',
     ];
 
     /**

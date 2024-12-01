@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -34,6 +35,7 @@ Route::middleware(['maintenance'])->group(function () {
             Route::post('update-cart', [CartController::class, 'update'])->name('cart.update');
             Route::get('delete{id}', [CartController::class, 'delete'])->name('cart.delete');
             Route::get('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
+            Route::get('notifications', [ProfileController::class, 'notifications'])->name('notifications.index');
         });
     
         Route::group(['prefix' => 'checkout'], function(){
@@ -54,7 +56,7 @@ Route::middleware(['maintenance'])->group(function () {
             Route::get('/detail/{order}', [OrderHistoryController::class, 'show'])->name('order_history.show');
             Route::get('/update/{order}', [OrderHistoryController::class, 'update'])->name('order_history.update');
         });
-    
+        
     
     });
     
