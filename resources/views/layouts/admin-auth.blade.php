@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="{{ asset('asset/admin/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('asset/admin/dist/css/adminlte.min.css') }}">
+  @vite(['resources/client/css/auth.css', 'resources/client/css/home.css'])
 </head>
 <body class="hold-transition login-page">
     @yield('content-auth')

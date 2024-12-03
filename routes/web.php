@@ -14,6 +14,20 @@ use App\Http\Controllers\ProductReviewController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\Auth\FacebookController;
+
+Route::middleware(['maintenance_active'])->group(function () {
+    Route::get('maintenance', [HomeController::class, "maintenance"])->name('user.maintenance');
+});
+
+Route::get('/auth/facebook', [FacebookController::class, 'redirectToFacebook'])->name('auth.facebook');
+Route::get('/auth/facebook/callback', [FacebookController::class, 'handleFacebookCallback']);
+
+
+Route::get('/auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
 Route::middleware(['maintenance_active'])->group(function () {
     Route::get('maintenance', [HomeController::class, "maintenance"])->name('user.maintenance');
 });

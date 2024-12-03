@@ -60,14 +60,15 @@ class ProductDetailService
             ->get();
         // lấy kích thước của sản phẩm
         $productsize = DB::table('products_color')
+            ->join('colors', 'colors.id', 'products_color.color_id')
             ->join('products_size', 'products_size.product_color_id', 'products_color.id')
             ->join('sizes', 'sizes.id', 'products_size.size_id')
-            ->select('sizes.name as size_name', 'products_size.id as product_size_id', 'products_color.id as product_color_id', 'products_size.quantity')
+            ->select('sizes.name as size_name', 'products_size.id as product_size_id', 'products_color.id as product_color_id', 'products_size.quantity', 'colors.name as color_name')
             ->where('products_color.product_id', $product->id)
             ->whereNull('products_color.deleted_at')
             ->whereNull('products_size.deleted_at')
             ->get();
-        
+
         // lấy tổng số lượng sao được đánh giá và thông tin 
         $ratingsByProduct = $this->productReviewReprository->getRatingByProduct($product->id);
 
@@ -88,6 +89,7 @@ class ProductDetailService
             $totalRating += $rating->rating * $rating->sum;
             $totalNumberReview += $rating->sum;
         }
+
         $avgRating = count($ratingsByProduct) > 0 ? $totalRating / $totalNumberReview : 5;
 
         //check if the user is allowed to rate the product
