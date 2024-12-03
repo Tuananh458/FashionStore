@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('BROADCAST_DRIVER', 'null'),
+    'default' => env('BROADCAST_DRIVER', 'pusher'),
 
     /*
     |--------------------------------------------------------------------------
@@ -64,6 +64,11 @@ return [
         'null' => [
             'driver' => 'null',
         ],
+        'socketio' => [
+        'driver' => 'socketio',
+        'host' => env('LARAVEL_ECHO_SERVER_HOST', '127.0.0.1'),
+        'port' => env('LARAVEL_ECHO_SERVER_PORT', '6001'),
+    ],
 
     ],
 

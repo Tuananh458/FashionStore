@@ -7,8 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Events\\MessageSent' => $baseDir . '/app/Events/MessageSent.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
-    'App\\Helpers\\admin\\TextSystemConst' => $baseDir . '/app/Helpers/admin/TextSystemConst.php',
     'App\\Http\\Controllers\\Admin\\AdminController' => $baseDir . '/app/Http/Controllers/Admin/AdminController.php',
     'App\\Http\\Controllers\\Admin\\Auth\\AuthenticatedSessionController' => $baseDir . '/app/Http/Controllers/Admin/Auth/AuthenticatedSessionController.php',
     'App\\Http\\Controllers\\Admin\\Auth\\EmailVerificationNotificationController' => $baseDir . '/app/Http/Controllers/Admin/Auth/EmailVerificationNotificationController.php',
@@ -25,6 +25,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\SettingController' => $baseDir . '/app/Http/Controllers/Admin/SettingController.php',
     'App\\Http\\Controllers\\Admin\\SizeController' => $baseDir . '/app/Http/Controllers/Admin/SizeController.php',
     'App\\Http\\Controllers\\Admin\\UserController' => $baseDir . '/app/Http/Controllers/Admin/UserController.php',
+    'App\\Http\\Controllers\\AuthController' => $baseDir . '/app/Http/Controllers/AuthController.php',
     'App\\Http\\Controllers\\Auth\\AuthenticatedSessionController' => $baseDir . '/app/Http/Controllers/Auth/AuthenticatedSessionController.php',
     'App\\Http\\Controllers\\Auth\\EmailVerificationNotificationController' => $baseDir . '/app/Http/Controllers/Auth/EmailVerificationNotificationController.php',
     'App\\Http\\Controllers\\Auth\\EmailVerificationPromptController' => $baseDir . '/app/Http/Controllers/Auth/EmailVerificationPromptController.php',
@@ -32,6 +33,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\VerifyEmailController' => $baseDir . '/app/Http/Controllers/Auth/VerifyEmailController.php',
     'App\\Http\\Controllers\\CartController' => $baseDir . '/app/Http/Controllers/CartController.php',
+    'App\\Http\\Controllers\\ChatController' => $baseDir . '/app/Http/Controllers/ChatController.php',
     'App\\Http\\Controllers\\CheckOutController' => $baseDir . '/app/Http/Controllers/CheckOutController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
@@ -85,6 +87,7 @@ return array(
     'App\\Models\\Brand' => $baseDir . '/app/Models/Brand.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
     'App\\Models\\Color' => $baseDir . '/app/Models/Color.php',
+    'App\\Models\\Message' => $baseDir . '/app/Models/Message.php',
     'App\\Models\\Order' => $baseDir . '/app/Models/Order.php',
     'App\\Models\\OrderDetail' => $baseDir . '/app/Models/OrderDetail.php',
     'App\\Models\\Payment' => $baseDir . '/app/Models/Payment.php',

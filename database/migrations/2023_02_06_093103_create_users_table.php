@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('password')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('phone_number');
+            $table->string('phone_number')->nullable(); // Cho phép NULL
             $table->bigInteger('role_id')->unsigned();
             $table->integer('active')->default(1);
             $table->string('disable_reason')->nullable();
@@ -30,6 +30,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('role_id')->references('id')->on('roles');
+            $table->unsignedBigInteger('role_id')->default(1); // Giá trị mặc định, ví dụ là `1`
         });
     }
 

@@ -298,5 +298,6 @@ class DatabaseSeeder extends Seeder
                 DB::table($database['table'])->insert($record);
             }
         }
+        \App\Models\User::factory(10)->create();
     }
 }

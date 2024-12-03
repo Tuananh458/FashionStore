@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\MessageSent;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -13,7 +14,13 @@ use App\Http\Controllers\ProductDetailController;
 use App\Http\Controllers\ProductReviewController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\AuthController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
+
 Route::middleware(['maintenance_active'])->group(function () {
     Route::get('maintenance', [HomeController::class, "maintenance"])->name('user.maintenance');
 });
@@ -78,6 +85,30 @@ Route::middleware(['maintenance'])->group(function () {
     
     });
 });
+Route::get('chat', function(){
+    return view('chat');
 
 
+});
 
+Route::post('message', function(Request $request){
+    broadcast(new MessageSent(auth()->user(), $request->input('message')));
+    return $request->input('message');
+});
+
+Route::get('/chat/{receiverId?}', [ChatController::class, 'showChat'])->name('chat')->middleware('auth');
+Route::post('/send-message', [ChatController::class, 'sendMessage'])->middleware('auth');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('user.logout');
+Route::get('login/{id}', function ($id) {
+    Auth::loginUsingId($id);
+
+    return back();
+
+});
+Route::get('logout', function () {
+    Auth::logout();
+
+    return back();
+
+});
