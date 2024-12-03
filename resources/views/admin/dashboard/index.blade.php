@@ -7,29 +7,29 @@
         <div class="row">
           <div class="col-lg-4 col-6">
             <!-- small box -->
-           <x-box-dashboard :data="$revenue" title="Tổng Doanh Thu" route="doanhthu" boxtype="warning"/>
+           <x-box-dashboard :data="$revenue" title="Tổng Doanh Thu" route="doanhthu" boxtype="success"/>
           </div>
           <!-- ./col -->
           <div class="col-lg-4 col-6">
             <!-- small box -->
-            <x-box-dashboard :data="$orders" title="Tổng Đơn Hàng" route="donhang" boxtype="success"/>
+            <x-box-dashboard :data="$orders" title="Tổng Đơn Hàng" route="donhang" boxtype="info"/>
           </div>
           <!-- ./col -->
           <div class="col-lg-4 col-6">
             <!-- small box -->
-            <x-box-dashboard :data="$admins" title="Tổng Nhân Sự" route="sanpham" boxtype="info"/>
+            <x-box-dashboard :data="$admins" title="Tổng Nhân Sự" route="sanpham" boxtype="primary"/>
           </div>
           <div class="col-lg-4 col-6">
             <!-- small box -->
-            <x-box-dashboard :data="$profit" title="Tổng Lợi Nhuận" route="loinhuan" boxtype="danger"/>
+            <x-box-dashboard :data="$profit" title="Tổng Lợi Nhuận" route="loinhuan" boxtype="secondary"/>
           </div>
           <div class="col-lg-4 col-6">
             <!-- small box -->
-            <x-box-dashboard :data="$products" title="Tổng Sản Phẩm Tồn Kho" route="tonkho" boxtype="primary"/>
+            <x-box-dashboard :data="$products" title="Tổng Sản Phẩm Tồn Kho" route="tonkho" boxtype="red"/>
           </div>
           <div class="col-lg-4 col-6">
             <!-- small box -->
-            <x-box-dashboard :data="$users" title="Tổng Khách Hàng" route="khachhang" boxtype="warning"/>
+            <x-box-dashboard :data="$users" title="Tổng Khách Hàng" route="khachhang" boxtype="dark"/>
           </div>
           <div class="col-md-12">
              <!-- STACKED BAR CHART -->

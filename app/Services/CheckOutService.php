@@ -289,6 +289,7 @@ class CheckOutService
     public function payWithMoMo($orderId, $amount, $redirectUrl, $ipnUrl)
     {
         $endPoint = env('MOMO_END_POINT');
+        
 
         if (is_null($endPoint)) {
             Log::error('MoMo endpoint URL is not set.');

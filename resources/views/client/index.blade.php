@@ -2,7 +2,7 @@
 @section('content-client')
 <div class="clearfix"></div>
 <div class="hom-slider">
-    <img src="{{ asset('asset/client/images/banner.webp') }}" alt="">
+    <img src="{{ asset('asset/client/images/banner.jpg') }}" alt="">
 </div>
 <div class="clearfix"></div>
 <div class="container_fullwidth">

@@ -172,6 +172,12 @@ class DatabaseSeeder extends Seeder
                         'status' => 1,
                         'img' => '1682960202.png',
                     ],
+                    [
+                        'id' => 3,
+                        'name' => 'Ví điện tử VNPAY',
+                        'status' => 1,
+                        'img' => '1694970935.png',
+                    ],
                 ]
             ],
             [
@@ -205,8 +211,32 @@ class DatabaseSeeder extends Seeder
                         'id' => 7,
                         'name' => 'Tím'
                     ],
+                    [
+                        'id' => 8,
+                        'name' => 'Xanh dương'
+                    ],
+                    [
+                        'id' => 9,
+                        'name' => 'Cam'
+                    ],
+                    [
+                        'id' => 10,
+                        'name' => 'Hồng'
+                    ],
+                    [
+                        'id' => 11,
+                        'name' => 'Nâu'
+                    ],
+                    [
+                        'id' => 12,
+                        'name' => 'Be'
+                    ],
+                    [
+                        'id' => 13,
+                        'name' => 'Lục'
+                    ],
                 ]
-            ],
+            ],            
             [
                 'table' => 'sizes',
                 'data' => [
